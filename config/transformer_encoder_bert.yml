@@ -30,7 +30,7 @@ data:
     mean2s: 80
     frame: 1200
   paths:
-    mean2s: "data/visual_feature/qvhighlights_swin_2s.h5"
+    mean2s: "data/visual_feature/BIDS_swin_2s.h5"
     frame: "data/visual_feature/qvhighlight.h5"
     caption: "data/caption"
     summary: "data/summary_annotation"
