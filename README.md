@@ -4,7 +4,7 @@ This is the official implementation of the ICLR24 paper *"UBiSS: A Unified Frame
 
 ## BIDS Dataset
 
-We provide the extracted CNN and VideoSwinTransformer visual features of **BIDS** dataset in `data/visual_feauture`. You can load feature from .h5 files as the following example shows:
+We provide the extracted VideoSwinTransformer visual features of **BIDS** dataset. You can download them from [here](https://1drv.ms/f/c/97dec68abb271787/EoliBgXKnDdMgFkTdt0jVhIBW-snVz1HXZPaOBrXnqZ8Ug) and put it inside `data/visual_feauture`. You can load feature from .h5 files as the following example shows:
 
 ```
 import numpy as np
