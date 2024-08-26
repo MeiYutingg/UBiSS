@@ -1,0 +1,77 @@
+mode: 2s
+seed: 66
+
+model:
+  encoder:
+    d_inp: 1024
+    d_model: 1024
+    d_inner: 2048
+    n_layers: 4
+    n_head: 4
+    use_drop_out: true
+    use_layer_norm: true
+  bert:
+    img_feature_dim: 1024
+    max_seq_length: 45
+    max_seq_a_length: 45
+    max_gen_length: 45
+    num_beams: 5
+    model_name_or_path: "model/bert-base-uncased/"
+    do_lower_case: true
+  loss: 
+    sum_loss: "neuralNDCG"
+  pretrained_bert_path: ""
+
+data:
+  split_file: "data/splits.json"
+  time_token_bins: 400
+  num_workers: 56
+  num_frames:
+    mean2s: 80
+    frame: 1200
+  paths:
+    mean2s: "data/visual_feature/qvhighlights_swin_2s.h5"
+    frame: "data/visual_feature/qvhighlight.h5"
+    caption: "data/caption"
+    summary: "data/summary_annotation"
+
+hparams:
+  use_lr_finder: false
+  time_token_bins: 400
+  encoder:
+    lr: 0.0001
+    weight_decay: 0.001
+  bert:
+    lr: 0.00005
+    weight_decay: 0.05
+  adam_epsilon: 1e-08
+  batch_size: 32
+  language_warm_up_epoch: 0
+  cap_loss_ratio: 1
+  use_bert_loss: true
+  sum_loss_ratio: 1
+  use_sum_loss: true
+
+lightning:
+  trainer:
+    max_epochs: 150
+    log_every_n_steps: 15
+    check_val_every_n_epoch: 1
+    auto_lr_find: false
+  save_ckpt_path: "multi-run/seed66/ubasis_swin_mse/ckpt"
+  load_ckpt_path: ""
+
+wandb:
+  mode: "online"
+  run_name: "seed66_ubasis_swin_mse"
+
+evaluation:
+  fps: 8
+  sum_ratio: 0.15
+  val_caption_coco_file_path: "data/caption_coco_format/val.caption_coco_format.json"
+  test_caption_coco_file_path: "data/caption_coco_format/test.caption_coco_format.json"
+  val_summary_anno_path: "data/summary_annotation/val.jsonl"
+  test_summary_anno_path: "data/summary_annotation/test.jsonl"
+  result_path: "multi-run/seed66/ubasis_swin_mse"
+  save_val_result: true
+  save_eval_result: true
