@@ -1,5 +1,5 @@
 # UBiSS
-This is the official implementation of the ICMR24 paper *"UBiSS: A Unified Framework for Bimodal Semantic Summarization of Videos"*
+This is the official implementation of the ICMR24 paper *["UBiSS: A Unified Framework for Bimodal Semantic Summarization of Videos"(https://arxiv.org/abs/2406.16301)*.
 
 
 ## BIDS Dataset
