@@ -15,7 +15,7 @@ with h5py.File("data/visual_feature/qvhighlight_2s.h5", "r") as f:
         feature = np.array(f[video_name]['features']) # shape: [t, 1024]
 ```
 
-For original videos, click [here](https://1drv.ms/f/c/97dec68abb271787/EoliBgXKnDdMgFkTdt0jVhIBW-snVz1HXZPaOBrXnqZ8Ug) to  to download `videos.zip`. The feature provided is sufficient for running the training and evaluation script. You will only need original videos to calculate $NDCG_{TM}$.
+For original videos, click [here](https://1drv.ms/f/c/97dec68abb271787/EoliBgXKnDdMgFkTdt0jVhIBW-snVz1HXZPaOBrXnqZ8Ug) to  to download `videos.zip` (fps=8). The feature provided is sufficient for running the training and evaluation script. You will only need original videos to calculate $NDCG_{TM}$.
 
 ## Training & Inference
 
